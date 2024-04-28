@@ -48,13 +48,7 @@ struct PressableButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .opacity(configuration.isPressed ? 0.8 : 1)
-            .brightness(configuration.isPressed ? 0.2 : 0)
-            .background(
-                Color.blue
-                    .shadow(.inner(color: .white.opacity(0.4), radius: 10, x: 0, y: 15))
-                    .shadow(.drop(color: .black.opacity(0.3), radius: 20, x: 0, y: -10))
-            )
-            .clipShape(.buttonBorder)
+            .brightness(configuration.isPressed ? 0.1 : 0)
             .scaleEffect(configuration.isPressed ? scaleAmount : 1)
     }
 }

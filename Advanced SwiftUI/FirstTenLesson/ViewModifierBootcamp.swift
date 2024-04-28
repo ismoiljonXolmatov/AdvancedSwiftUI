@@ -34,14 +34,23 @@ struct DefaultButtonModifier: ViewModifier {
     
     let background: Color
     
+    init(background: Color = .blue) {
+        self.background = background
+    }
+    
     func body(content: Content) -> some View {
         content
+            .font(.headline)
+            .fontWeight(.heavy)
             .foregroundStyle(Color.white)
             .frame(height: 55)
             .frame(maxWidth: .infinity)
-            .background(background)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .shadow(radius: 10)
+            .background(
+                Color.blue
+                    .shadow(.inner(color: .white.opacity(0.4), radius: 10, x: 0, y: 15))
+                    .shadow(.drop(color: .black.opacity(0.3), radius: 20, x: 0, y: -10))
+            )
+            .clipShape(.buttonBorder)
             
     }
 }
